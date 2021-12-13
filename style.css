@@ -13,9 +13,25 @@ body {
     font-size: 2rem;
 }
 
-#target {
-    width: 20%;
-    height: 20vh;
-    border: 1px solid black;
-    margin: 10vh auto;
+main {
+    display: flex;
 }
+
+#target {
+    width: 30%;
+    margin: 10vh auto;
+    background-image: url("cadran01.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#clockPlace {
+    width: 50vw;
+    height: 50vh;
+    background-image: url("cadran02.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
