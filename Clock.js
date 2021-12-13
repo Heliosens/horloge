@@ -1,8 +1,20 @@
-// create needle : type = hour, min, sec
+/**
+ * create clock
+ * create needle type = 'hour' or 'min' or 'sec'
+ * @constructor
+ */
 let Clock = function (){
 
-
-
+    /**
+     *
+     * @param target
+     * @param w
+     * @param h
+     * @param hUnit
+     * @param color
+     * @param type
+     * @param imgUrl
+     */
     this.createNeedle = function (target, w, h, hUnit, color, type, imgUrl = ""){
         // create frame needle
         let frame = document.createElement('div');
@@ -16,6 +28,9 @@ let Clock = function (){
         needle.style.transformOrigin = "center bottom";
         frame.appendChild(needle);
 
+        /**
+         * rotate in function of needle type
+         */
         switch (type){
             case 'sec' :
                 setInterval(function (){
