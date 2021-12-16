@@ -24,6 +24,10 @@ let Clock = function (){
         needle.style.width = w;
         needle.style.height = h + hUnit;
         needle.style.backgroundColor = color;
+        needle.style.backgroundImage = imgUrl;
+        needle.style.backgroundPosition = "center";
+        needle.style.backgroundSize = "contain";
+        needle.style.backgroundRepeat = "no-repeat";
         needle.style.position = "absolute";
         needle.style.transformOrigin = "center bottom";
         frame.appendChild(needle);
