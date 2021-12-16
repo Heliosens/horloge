@@ -15,12 +15,13 @@ body {
 
 main {
     display: flex;
+    flex-wrap: wrap;
 }
 
 #target {
-    width: 30%;
-    margin: 10vh auto;
-    background-image: url("cadran01.png");
+    width: 40vw;
+    margin: 0 auto;
+    background-image: url("img/cadran01.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +30,7 @@ main {
 #clockPlace {
     width: 50vw;
     height: 50vh;
-    background-image: url("cadran02.jpg");
+    background-image: url("img/cadran02.jpg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

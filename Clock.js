@@ -25,7 +25,7 @@ let Clock = function (){
         needle.style.height = h + hUnit;
         needle.style.backgroundColor = color;
         needle.style.backgroundImage = imgUrl;
-        needle.style.backgroundPosition = "center";
+        needle.style.backgroundPosition = "center bottom";
         needle.style.backgroundSize = "contain";
         needle.style.backgroundRepeat = "no-repeat";
         needle.style.position = "absolute";
@@ -38,20 +38,21 @@ let Clock = function (){
         switch (type){
             case 'sec' :
                 setInterval(function (){
-                    let r = new Date().getSeconds();
-                    needle.style.transform = "rotate(" + r*6 + "deg)";
+                    let t = new Date().getSeconds();
+                    needle.style.transform = "rotate(" + t*6 + "deg)";
                 }, 1000)
                 break;
             case 'min' :
                 setInterval(function (){
-                    let r = new Date().getMinutes();
-                    needle.style.transform = "rotate(" + r*6 + "deg)";
+                    let t = new Date().getMinutes();
+                    needle.style.transform = "rotate(" + t*6 + "deg)";
                 }, 1000)
                 break;
             case 'hour' :
                 setInterval(function (){
-                    let r = new Date().getHours();
-                    needle.style.transform = "rotate(" + r*30 + "deg)";
+                    let t = new Date().getHours();
+                    let m = new Date().getMinutes();
+                    needle.style.transform = "rotate(" + (t+(m/60))*30 + "deg)";
                 }, 1000)
                 break;
         }
