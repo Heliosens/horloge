@@ -13,24 +13,28 @@ let Clock = function (){
      * @param hUnit
      * @param color
      * @param type
-     * @param imgUrl
+     * @param elem
      */
-    this.createNeedle = function (target, w, h, hUnit, color, type, imgUrl = ""){
+    this.createNeedle = function (target, w, h, hUnit, color, type, elem){
         // create frame needle
         let frame = document.createElement('div');
         frame.style.height = (2 * h) + hUnit;
-        // create needle
-        let needle = document.createElement('div');
-        needle.style.width = w;
-        needle.style.height = h + hUnit;
-        needle.style.backgroundColor = color;
-        needle.style.backgroundImage = imgUrl;
-        needle.style.backgroundPosition = "center bottom";
-        needle.style.backgroundSize = "contain";
-        needle.style.backgroundRepeat = "no-repeat";
-        needle.style.position = "absolute";
-        needle.style.transformOrigin = "center bottom";
-        frame.appendChild(needle);
+        if(elem){
+            frame.appendChild(elem);
+        }
+        else {
+            // create needle
+            let needle = document.createElement('div');
+            needle.style.width = w;
+            needle.style.height = h + hUnit;
+            needle.style.backgroundColor = color;
+            needle.style.backgroundPosition = "center bottom";
+            needle.style.backgroundSize = "contain";
+            needle.style.backgroundRepeat = "no-repeat";
+            needle.style.position = "absolute";
+            needle.style.transformOrigin = "center bottom";
+            frame.appendChild(needle);
+        }
 
         /**
          * rotate in function of needle type
@@ -39,20 +43,20 @@ let Clock = function (){
             case 'sec' :
                 setInterval(function (){
                     let t = new Date().getSeconds();
-                    needle.style.transform = "rotate(" + t*6 + "deg)";
+                    frame.style.transform = "rotate(" + t*6 + "deg)";
                 }, 1000)
                 break;
             case 'min' :
                 setInterval(function (){
                     let t = new Date().getMinutes();
-                    needle.style.transform = "rotate(" + t*6 + "deg)";
+                    frame.style.transform = "rotate(" + t*6 + "deg)";
                 }, 1000)
                 break;
             case 'hour' :
                 setInterval(function (){
                     let t = new Date().getHours();
                     let m = new Date().getMinutes();
-                    needle.style.transform = "rotate(" + (t+(m/60))*30 + "deg)";
+                    frame.style.transform = "rotate(" + (t+(m/60))*30 + "deg)";
                 }, 1000)
                 break;
         }
